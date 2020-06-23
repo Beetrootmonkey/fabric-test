@@ -1,3 +1,5 @@
 {
-  "item.fabrictest.copper_ingot": "Copper Ingot"
+  "item.fabrictest.copper_ingot": "Copper Ingot",
+  "block.fabrictest.test_block": "Test Block",
+  "block.fabrictest.iron_furnace": "Grinder"
 }

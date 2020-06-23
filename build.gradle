@@ -1,77 +1,148 @@
-plugins {
-	id 'fabric-loom' version '0.4-SNAPSHOT'
-	id 'maven-publish'
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "Modmuss50"
+            url = "https://maven.modmuss50.me/"
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.fabricmc:fabric-loom:0.4-SNAPSHOT"
+        classpath "gradle.plugin.net.minecrell:licenser:0.2.1"
+        classpath 'de.undercouch:gradle-download-task:3.4.3'
+    }
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+apply plugin: net.fabricmc.loom.LoomGradlePlugin
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: net.minecrell.gradle.licenser.Licenser
+apply plugin: 'de.undercouch.download'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
 
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-group = project.maven_group
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    maven {
+        name = "Modmuss50"
+        url = "https://maven.modmuss50.me/"
+    }
+    maven {
+        // LibCD
+        url 'http://server.bbkr.space:8081/artifactory/libs-release'
+    }
+    maven {
+        //Dev Mode
+        url "https://maven.jamieswhiteshirt.com/libs-release/"
+    }
+    maven {
+        //trinkets
+        url = "https://maven.abusedmaster.xyz/"
+    }
+    maven {
+        url = "https://jitpack.io"
+    }
+}
+
+version = "3.4.0"
+
+configurations {
+    shade
+    compile.extendsFrom shade
+}
+
+def ENV = System.getenv()
+def build_number = ENV.BUILD_NUMBER ?: "local"
+version = "${version}+build.$build_number"
+
+
+group = 'FabricTest'
 
 dependencies {
-	//to change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    minecraft "com.mojang:minecraft:1.16-rc1"
+    mappings "net.fabricmc:yarn:1.16-rc1+build.1:v2"
+    modImplementation "net.fabricmc:fabric-loader:0.8.8+build.202"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    //Fabric api
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.12.4+build.365-1.16"
 
-	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
-	// You may need to force-disable transitiveness on them.
+    optionalDependency("me.shedaniel:RoughlyEnoughItems:4.5.1")
+    disabledOptionalDependency('io.github.cottonmc:LibCD:2.3.0+1.15.2')
+    disabledOptionalDependency('com.github.emilyploszaj:trinkets:2.4.2')
+
+    def rcVersion = 'RebornCore:RebornCore-1.16:+'
+    modApi(rcVersion) {
+        exclude group: "net.fabricmc.fabric-api"
+    }
+    include rcVersion
+
+    compileOnly "com.google.code.findbugs:jsr305:3.0.2"
+
+    modApi 'teamreborn:energy:0.1.0'
+}
+
+def optionalDependency(String dep) {
+    dependencies.modRuntime(dep) {
+        exclude group: "net.fabricmc.fabric-api"
+        exclude module: "nbt-crafting"
+    }
+    dependencies.modCompileOnly(dep) {
+        exclude group: "net.fabricmc.fabric-api"
+        exclude module: "nbt-crafting"
+    }
+}
+
+def disabledOptionalDependency(String dep) {
+    dependencies.modCompileOnly(dep) {
+        exclude group: "net.fabricmc.fabric-api"
+        exclude module: "nbt-crafting"
+    }
 }
 
 processResources {
-	inputs.property "version", project.version
+    inputs.property "version", project.version
 
-	from(sourceSets.main.resources.srcDirs) {
-		include "fabric.mod.json"
-		expand "version": project.version
-	}
+    from(sourceSets.main.resources.srcDirs) {
+        include "fabric.mod.json"
+        expand "version": project.version
+    }
 
-	from(sourceSets.main.resources.srcDirs) {
-		exclude "fabric.mod.json"
-	}
-}
-
-// ensure that the encoding is set to UTF-8, no matter what the system default is
-// this fixes some edge cases with special characters not displaying correctly
-// see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
-tasks.withType(JavaCompile) {
-	options.encoding = "UTF-8"
-}
-
-// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-// if it is present.
-// If you remove this task, sources will not be generated.
-task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = "sources"
-	from sourceSets.main.allSource
+    from(sourceSets.main.resources.srcDirs) {
+        exclude "fabric.mod.json"
+    }
 }
 
 jar {
-	from "LICENSE"
+    exclude "**/*.psd"
+    classifier = 'universal'
+
+    from { null }
 }
 
-// configure the maven publication
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			// add all the jars that should be included when publishing to maven
-			artifact(remapJar) {
-				builtBy remapJar
-			}
-			artifact(sourcesJar) {
-				builtBy remapSourcesJar
-			}
-		}
-	}
 
-	// select the repositories you want to publish to
-	repositories {
-		// uncomment to publish to the local maven
-		// mavenLocal()
-	}
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+//Remove all translations that do not have an entry, ensures that minecraft falls back to EN_US over writing out an empty string.
+task fixTranslations(dependsOn: ['renameCrowdin']) {
+    def jsonSlurper = new JsonSlurper()
+    doLast {
+        file('build/translations').eachFileRecurse(groovy.io.FileType.FILES) {
+            if (it.name.endsWith(".json")) {
+                def lang = jsonSlurper.parseText(it.text)
+                lang.values().removeIf { val -> val.empty }
+                it.text = JsonOutput.prettyPrint(JsonOutput.toJson(lang))
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = "sources"
+    from sourceSets.main.allSource
 }

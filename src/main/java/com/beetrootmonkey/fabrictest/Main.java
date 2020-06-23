@@ -1,5 +1,6 @@
 package com.beetrootmonkey.fabrictest;
 
+import com.beetrootmonkey.fabrictest.block.BaseBlock;
 import com.beetrootmonkey.fabrictest.recipe.DummyRecipe;
 import com.beetrootmonkey.fabrictest.recipe.DummyRecipeSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -32,6 +33,7 @@ import java.util.function.Consumer;
 
 public class Main implements ModInitializer {
 
+  public static final String MOD_ID = "fabrictest";
   public static Random random;
   public static final Item COPPER_INGOT = new Item(new Item.Settings().group(ItemGroup.MISC));
   public static final Block TEST_BLOCK = new BaseBlock(FabricBlockSettings.of(Material.WOOL).dropsNothing().sounds(BlockSoundGroup.CHAIN));
@@ -39,11 +41,14 @@ public class Main implements ModInitializer {
   @Override
   public void onInitialize() {
     random = new Random();
-    Registry.register(Registry.ITEM, new Identifier("fabrictest", "copper_ingot"), COPPER_INGOT);
-    Registry.register(Registry.BLOCK, new Identifier("fabrictest", "test_block"), TEST_BLOCK);
-    Registry.register(Registry.ITEM, new Identifier("fabrictest", "test_block"), new BlockItem(TEST_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
-    Registry.register(Registry.RECIPE_SERIALIZER, new Identifier("fabrictest", DummyRecipeSerializer.ID), DummyRecipeSerializer.INSTANCE);
-    Registry.register(Registry.RECIPE_TYPE, new Identifier("fabrictest", DummyRecipe.Type.ID), DummyRecipe.Type.INSTANCE);
+    Registry.register(Registry.ITEM, new Identifier(MOD_ID, "copper_ingot"), COPPER_INGOT);
+    Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "test_block"), TEST_BLOCK);
+    Registry.register(Registry.ITEM, new Identifier(MOD_ID, "test_block"), new BlockItem(TEST_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+    Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "iron_furnace"), TRContent.Machine.IRON_FURNACE.block);
+    Registry.register(Registry.ITEM, new Identifier(MOD_ID, "iron_furnace"), new BlockItem(TRContent.Machine.IRON_FURNACE.block, new Item.Settings().group(ItemGroup.MISC)));
+    Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(MOD_ID, DummyRecipeSerializer.ID), DummyRecipeSerializer.INSTANCE);
+    Registry.register(Registry.RECIPE_TYPE, new Identifier(MOD_ID, DummyRecipe.Type.ID), DummyRecipe.Type.INSTANCE);
+
 
     SheepShearCallback.EVENT.register(this::handleSheepShear);
 

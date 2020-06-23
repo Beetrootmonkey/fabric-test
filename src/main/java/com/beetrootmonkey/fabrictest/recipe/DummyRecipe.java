@@ -34,7 +34,14 @@ public class DummyRecipe implements Recipe<Inventory> {
 
   @Override
   public boolean matches(Inventory inv, World world) {
-    return inputA.test(inv.getStack(0)) && inputB.test(inv.getStack(1));
+    return inputA.test(inv.getStack(0));
+//    return inputA.test(inv.getStack(0)) && inputB.test(inv.getStack(1));
+  }
+
+  @Override
+  public DefaultedList<Ingredient> getPreviewInputs() {
+    DefaultedList<Ingredient> list = DefaultedList.copyOf(inputA, inputA);
+    return list;
   }
 
   @Override
@@ -53,38 +60,15 @@ public class DummyRecipe implements Recipe<Inventory> {
   }
 
   @Override
-  public DefaultedList<ItemStack> getRemainingStacks(Inventory inventory) {
-    return null;
-  }
-
-  @Override
-  public DefaultedList<Ingredient> getPreviewInputs() {
-    return null;
-  }
-
-  @Override
-  public boolean isIgnoredInRecipeBook() {
-    return false;
-  }
-
-  @Override
-  public String getGroup() {
-    return null;
-  }
-
-  @Override
-  public ItemStack getRecipeKindIcon() {
-    return null;
-  }
-
-  @Override
   public Identifier getId() {
     return id;
   }
 
   public static class Type implements RecipeType<DummyRecipe> {
     // Type as a singleton by making its constructor private and exposing an instance.
-    private Type() {}
+    private Type() {
+    }
+
     public static final Type INSTANCE = new Type();
 
     // This will be needed in step 4

@@ -1,0 +1,32 @@
+{
+	"multipart": [
+		{
+		  	"when": { "covered": false },
+			"apply": { "model": "techreborn:block/cable/superconductor_cable_core" }
+		},
+		{
+			"when": { "north": true, "covered": false },
+			"apply": { "model": "techreborn:block/cable/superconductor_cable_side" }
+		},
+		{
+			"when": { "east": true, "covered": false },
+			"apply": { "model": "techreborn:block/cable/superconductor_cable_side", "y": 90 }
+		},
+		{
+			"when": { "south": true, "covered": false },
+			"apply": { "model": "techreborn:block/cable/superconductor_cable_side", "y": 180 }
+		},
+		{
+			"when": { "west": true, "covered": false },
+			"apply": { "model": "techreborn:block/cable/superconductor_cable_side", "y": 270 }
+		},
+		{
+			"when": { "up": true, "covered": false },
+			"apply": { "model": "techreborn:block/cable/superconductor_cable_side", "x": 270}
+		},
+		{
+			"when": { "down": true, "covered": false },
+			"apply": { "model": "techreborn:block/cable/superconductor_cable_side", "x": 90 }
+		}
+	]
+}

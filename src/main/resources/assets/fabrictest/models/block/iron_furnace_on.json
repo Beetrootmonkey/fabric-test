@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/orientable",
+    "textures": {
+        "top": "fabrictest:block/machine_top",
+        "front": "fabrictest:block/furnace_front_on",
+        "side": "fabrictest:block/machine_side"
+    }
+}
