@@ -1,6 +1,7 @@
 package com.beetrootmonkey.fabrictest;
 
 import com.beetrootmonkey.fabrictest.block.BaseBlock;
+import com.beetrootmonkey.fabrictest.config.ModConfig;
 import com.beetrootmonkey.fabrictest.recipe.DummyRecipe;
 import com.beetrootmonkey.fabrictest.recipe.DummyRecipeSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -27,6 +28,7 @@ import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import reborncore.common.config.Configuration;
 
 import java.util.Random;
 import java.util.function.Consumer;
@@ -40,6 +42,7 @@ public class Main implements ModInitializer {
 
   @Override
   public void onInitialize() {
+    new Configuration(ModConfig.class, "fabrictest");
     random = new Random();
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "copper_ingot"), COPPER_INGOT);
     Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "test_block"), TEST_BLOCK);

@@ -9,15 +9,13 @@ import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.SmeltingRecipe;
 import net.minecraft.server.network.ServerPlayerEntity;
 import reborncore.client.screen.BuiltScreenHandlerProvider;
 import reborncore.client.screen.builder.BuiltScreenHandler;
 import reborncore.client.screen.builder.ScreenHandlerBuilder;
 import reborncore.common.util.RebornInventory;
 
-import java.util.Optional;
+import static com.beetrootmonkey.fabrictest.config.ModConfig.experiencePerGrind;
 
 public class IronFurnaceBlockEntity extends AbstractIronMachineBlockEntity implements BuiltScreenHandlerProvider {
 
@@ -53,11 +51,7 @@ public class IronFurnaceBlockEntity extends AbstractIronMachineBlockEntity imple
   }
 
   private float getExperienceFor(ItemStack stack) {
-    Optional<SmeltingRecipe> recipe = world.getRecipeManager().getFirstMatch(RecipeType.SMELTING, this, world);
-    if (recipe.isPresent()) {
-      return recipe.get().getExperience();
-    }
-    return 0;
+    return experiencePerGrind;
   }
 
   // AbstractIronMachineBlockEntity
