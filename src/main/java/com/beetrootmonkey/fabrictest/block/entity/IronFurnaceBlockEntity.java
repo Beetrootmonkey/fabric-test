@@ -101,14 +101,12 @@ public class IronFurnaceBlockEntity extends AbstractIronMachineBlockEntity imple
   public void fromTag(BlockState blockState, CompoundTag compoundTag) {
     super.fromTag(blockState, compoundTag);
     experience = compoundTag.getFloat("Experience");
-    inventory.read(compoundTag);
   }
 
   @Override
   public CompoundTag toTag(CompoundTag compoundTag) {
     super.toTag(compoundTag);
     compoundTag.putFloat("Experience", experience);
-    inventory.write(compoundTag);
     return compoundTag;
   }
 

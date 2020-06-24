@@ -1,6 +1,7 @@
 package com.beetrootmonkey.fabrictest;
 
 import com.beetrootmonkey.fabrictest.block.ModBlocks;
+import com.beetrootmonkey.fabrictest.block.entity.TRBlockEntities;
 import com.beetrootmonkey.fabrictest.config.ModConfig;
 import com.beetrootmonkey.fabrictest.event.EventHandling;
 import com.beetrootmonkey.fabrictest.item.ModItems;
@@ -21,6 +22,9 @@ public class Main implements ModInitializer {
     ModItems.doRegistration();
     ModBlocks.doRegistration();
     EventHandling.doRegistration();
+    // "Force loads the block entities at the right time"
+    //noinspection ResultOfMethodCallIgnored
+    TRBlockEntities.IRON_FURNACE.toString();
 
 
   }
