@@ -2,6 +2,7 @@ package com.beetrootmonkey.fabrictest.block.entity;
 
 
 import com.beetrootmonkey.fabrictest.TRContent;
+import com.beetrootmonkey.fabrictest.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -71,7 +72,7 @@ public class TRBlockEntities {
 //  public static final BlockEntityType<HVTransformerBlockEntity> HV_TRANSFORMER = register(HVTransformerBlockEntity::new, "hv_transformer", TRContent.Machine.HV_TRANSFORMER);
 //  public static final BlockEntityType<EVTransformerBlockEntity> EV_TRANSFORMER = register(EVTransformerBlockEntity::new, "ev_transformer", TRContent.Machine.EV_TRANSFORMER);
 //  public static final BlockEntityType<AutoCraftingTableBlockEntity> AUTO_CRAFTING_TABLE = register(AutoCraftingTableBlockEntity::new, "auto_crafting_table", TRContent.Machine.AUTO_CRAFTING_TABLE);
-  public static final BlockEntityType<IronFurnaceBlockEntity> IRON_FURNACE = register(IronFurnaceBlockEntity::new, "iron_furnace", TRContent.Machine.IRON_FURNACE);
+  public static final BlockEntityType<IronFurnaceBlockEntity> IRON_FURNACE = register(IronFurnaceBlockEntity::new, "iron_furnace", ModBlocks.IRON_FURNACE);
 //  public static final BlockEntityType<ScrapboxinatorBlockEntity> SCRAPBOXINATOR = register(ScrapboxinatorBlockEntity::new, "scrapboxinator", TRContent.Machine.SCRAPBOXINATOR);
 //  public static final BlockEntityType<PlasmaGeneratorBlockEntity> PLASMA_GENERATOR = register(PlasmaGeneratorBlockEntity::new, "plasma_generator", TRContent.Machine.PLASMA_GENERATOR);
 //  public static final BlockEntityType<LampBlockEntity> LAMP = register(LampBlockEntity::new, "lamp", TRContent.Machine.LAMP_INCANDESCENT, TRContent.Machine.LAMP_LED);

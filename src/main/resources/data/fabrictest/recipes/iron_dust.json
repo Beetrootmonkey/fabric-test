@@ -1,0 +1,11 @@
+{
+  "type": "fabrictest:dummy",
+  "inputA" : {
+    "item": "minecraft:iron_ore"
+  },
+  "inputB": {
+    "tag": "minecraft:logs"
+  },
+  "outputItem": "fabrictest:iron_dust",
+  "outputAmount": "2"
+}

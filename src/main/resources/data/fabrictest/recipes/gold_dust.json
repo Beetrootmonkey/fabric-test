@@ -1,11 +1,11 @@
 {
   "type": "fabrictest:dummy",
   "inputA" : {
-    "item": "minecraft:redstone"
+    "item": "minecraft:gold_ore"
   },
   "inputB": {
     "tag": "minecraft:logs"
   },
-  "outputItem": "minecraft:cobblestone",
-  "outputAmount": "1"
+  "outputItem": "fabrictest:gold_dust",
+  "outputAmount": "2"
 }

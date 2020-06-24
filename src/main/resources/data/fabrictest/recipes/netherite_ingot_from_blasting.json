@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:blasting",
   "ingredient": {
     "item": "fabrictest:netherite_dust"
   },
   "result": "minecraft:netherite_ingot",
-  "cookingtime": 200
+  "cookingtime": 100
 }

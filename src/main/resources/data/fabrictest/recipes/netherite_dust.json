@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:gold_dust"
+    },
+    {
+      "tag": "minecraft:gold_dust"
+    },
+    {
+      "tag": "minecraft:gold_dust"
+    },
+    {
+      "tag": "minecraft:gold_dust"
+    },
+    {
+      "item": "fabrictest:netherite_scrap_dust"
+    },
+    {
+      "item": "fabrictest:netherite_scrap_dust"
+    },
+    {
+      "item": "fabrictest:netherite_scrap_dust"
+    },
+    {
+      "item": "fabrictest:netherite_scrap_dust"
+    },
+    {
+      "item": "fabrictest:nether_star_nugget"
+    }
+  ],
+  "result": {
+    "item": "fabrictest:netherite_dust"
+  }
+}

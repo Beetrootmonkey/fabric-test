@@ -1,5 +1,14 @@
 {
-  "item.fabrictest.copper_ingot": "Copper Ingot",
   "block.fabrictest.test_block": "Test Block",
+  "item.fabrictest.ender_pearl_dust": "Ender Pearl Dust",
+  "item.fabrictest.gold_dust": "Gold Dust",
+  "item.fabrictest.iron_dust": "Iron Dust",
+  "item.fabrictest.lapis_lazuli_dust": "Lapis Lazuli Dust",
+  "item.fabrictest.nether_quartz_dust": "Nether Quartz Dust",
+  "item.fabrictest.nether_star_dust": "Nether Star Dust",
+  "item.fabrictest.nether_star_nugget": "Nether Star Nugget",
+  "item.fabrictest.netherite_dust": "Netherite Dust",
+  "item.fabrictest.netherite_scrap_dust": "Netherite Scrap Dust",
+  "item.fabrictest.prismarine_dust": "Prismarine Dust",
   "block.fabrictest.iron_furnace": "Grinder"
 }

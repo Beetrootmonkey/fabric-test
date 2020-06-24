@@ -2,6 +2,7 @@ package com.beetrootmonkey.fabrictest.block.entity;
 
 
 import com.beetrootmonkey.fabrictest.TRContent;
+import com.beetrootmonkey.fabrictest.block.ModBlocks;
 import com.beetrootmonkey.fabrictest.recipe.DummyRecipe;
 import com.beetrootmonkey.fabrictest.recipe.RecipeUtils;
 import net.minecraft.block.BlockState;
@@ -24,7 +25,7 @@ public class IronFurnaceBlockEntity extends AbstractIronMachineBlockEntity imple
   public float experience;
 
   public IronFurnaceBlockEntity() {
-    super(TRBlockEntities.IRON_FURNACE, 2, TRContent.Machine.IRON_FURNACE.block);
+    super(TRBlockEntities.IRON_FURNACE, 2, ModBlocks.IRON_FURNACE);
     this.inventory = new RebornInventory<>(3, "IronFurnaceBlockEntity", 64, this);
   }
 

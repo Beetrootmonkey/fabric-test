@@ -1,6 +1,5 @@
 package com.beetrootmonkey.fabrictest.block;
 
-
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.world.BlockView;
@@ -42,5 +41,4 @@ public class GenericMachineBlock extends BlockMachineBase {
   public IMachineGuiHandler getGui() {
     return gui;
   }
-
 }
