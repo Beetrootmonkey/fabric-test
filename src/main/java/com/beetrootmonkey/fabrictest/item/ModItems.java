@@ -14,7 +14,7 @@ public class ModItems {
   public static final Item IRON_DUST = new Item(new Item.Settings().group(ItemGroup.MISC));
   public static final Item LAPIS_LAZULI_DUST = new Item(new Item.Settings().group(ItemGroup.MISC));
   public static final Item NETHER_QUARTZ_DUST = new Item(new Item.Settings().group(ItemGroup.MISC));
-  public static final Item NETHER_STAR_DUST = new Item(new Item.Settings().group(ItemGroup.MISC));
+  public static final Item NETHER_STAR_DUST = new GlowingItem(new Item.Settings().group(ItemGroup.MISC));
   public static final Item NETHER_STAR_NUGGET = new GlowingItem(new Item.Settings().group(ItemGroup.MISC));
   public static final Item NETHERITE_DUST = new Item(new Item.Settings().group(ItemGroup.MISC));
   public static final Item NETHERITE_SCRAP_DUST = new Item(new Item.Settings().group(ItemGroup.MISC));

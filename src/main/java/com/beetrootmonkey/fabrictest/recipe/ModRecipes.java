@@ -8,7 +8,7 @@ import static com.beetrootmonkey.fabrictest.Main.MOD_ID;
 public class ModRecipes {
 
   public static void doRegistration() {
-    Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(MOD_ID, DummyRecipeSerializer.ID), DummyRecipeSerializer.INSTANCE);
-    Registry.register(Registry.RECIPE_TYPE, new Identifier(MOD_ID, DummyRecipe.Type.ID), DummyRecipe.Type.INSTANCE);
+    Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(MOD_ID, GrinderRecipeSerializer.ID), GrinderRecipeSerializer.INSTANCE);
+    Registry.register(Registry.RECIPE_TYPE, new Identifier(MOD_ID, GrinderRecipe.Type.ID), GrinderRecipe.Type.INSTANCE);
   }
 }

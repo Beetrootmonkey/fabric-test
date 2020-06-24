@@ -1,6 +1,6 @@
 package com.beetrootmonkey.fabrictest.block;
 
-import com.beetrootmonkey.fabrictest.recipe.DummyRecipe;
+import com.beetrootmonkey.fabrictest.recipe.GrinderRecipe;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -88,8 +88,8 @@ public class TestBlock extends BaseBlock {
       };
 
       // Or use .getAllMatches if you want all of the matches
-      Optional<DummyRecipe> match = world.getRecipeManager()
-        .getFirstMatch(DummyRecipe.Type.INSTANCE, inventory, world);
+      Optional<GrinderRecipe> match = world.getRecipeManager()
+        .getFirstMatch(GrinderRecipe.Type.INSTANCE, inventory, world);
 
       if (match.isPresent()) {
         // Give the player the item and remove from what he has. Make sure to copy the ItemStack to not ruin it!

@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Identifier;
 
-class DummyRecipeJsonFormat {
+class GrinderRecipeJsonFormat {
   JsonObject inputA;
   JsonObject inputB;
   String outputItem;

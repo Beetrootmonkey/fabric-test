@@ -10,14 +10,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public class DummyRecipe implements Recipe<Inventory> {
+public class GrinderRecipe implements Recipe<Inventory> {
 
   private final Ingredient inputA;
   private final Ingredient inputB;
   private final ItemStack outputStack;
   private final Identifier id;
 
-  public DummyRecipe(Ingredient inputA, Ingredient inputB, ItemStack outputStack, Identifier id) {
+  public GrinderRecipe(Ingredient inputA, Ingredient inputB, ItemStack outputStack, Identifier id) {
     this.inputA = inputA;
     this.inputB = inputB;
     this.outputStack = outputStack;
@@ -64,7 +64,7 @@ public class DummyRecipe implements Recipe<Inventory> {
     return id;
   }
 
-  public static class Type implements RecipeType<DummyRecipe> {
+  public static class Type implements RecipeType<GrinderRecipe> {
     // Type as a singleton by making its constructor private and exposing an instance.
     private Type() {
     }
@@ -72,7 +72,7 @@ public class DummyRecipe implements Recipe<Inventory> {
     public static final Type INSTANCE = new Type();
 
     // This will be needed in step 4
-    public static final String ID = "dummy";
+    public static final String ID = "grinding";
   }
 
   @Override
@@ -82,6 +82,6 @@ public class DummyRecipe implements Recipe<Inventory> {
 
   @Override
   public RecipeSerializer<?> getSerializer() {
-    return DummyRecipeSerializer.INSTANCE;
+    return GrinderRecipeSerializer.INSTANCE;
   }
 }

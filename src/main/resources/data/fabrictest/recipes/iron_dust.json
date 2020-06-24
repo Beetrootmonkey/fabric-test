@@ -1,5 +1,5 @@
 {
-  "type": "fabrictest:dummy",
+  "type": "fabrictest:grinding",
   "inputA" : {
     "item": "minecraft:iron_ore"
   },

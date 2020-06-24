@@ -1,9 +1,8 @@
 package com.beetrootmonkey.fabrictest.block.entity;
 
 
-import com.beetrootmonkey.fabrictest.TRContent;
 import com.beetrootmonkey.fabrictest.block.ModBlocks;
-import com.beetrootmonkey.fabrictest.recipe.DummyRecipe;
+import com.beetrootmonkey.fabrictest.recipe.GrinderRecipe;
 import com.beetrootmonkey.fabrictest.recipe.RecipeUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.ExperienceOrbEntity;
@@ -44,7 +43,7 @@ public class IronFurnaceBlockEntity extends AbstractIronMachineBlockEntity imple
 
   private ItemStack getResultFor(ItemStack stack) {
 //    return new ItemStack(Items.DIAMOND);
-    ItemStack result = RecipeUtils.getMatchingRecipes(world, DummyRecipe.Type.INSTANCE, stack);
+    ItemStack result = RecipeUtils.getMatchingRecipes(world, GrinderRecipe.Type.INSTANCE, stack);
     if (!result.isEmpty()) {
       return result.copy();
     }
