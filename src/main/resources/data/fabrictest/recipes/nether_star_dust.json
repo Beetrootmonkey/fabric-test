@@ -1,0 +1,9 @@
+{
+  "type": "fabrictest:grinding",
+  "input" : {
+    "item": "minecraft:nether_star"
+  },
+  "outputItem": "fabrictest:nether_star_dust",
+  "outputAmount": 1,
+  "duration": 200
+}

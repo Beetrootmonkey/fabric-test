@@ -1,0 +1,9 @@
+{
+  "type": "fabrictest:grinding",
+  "input" : {
+    "item": "minecraft:prismarine_shard"
+  },
+  "outputItem": "fabrictest:prismarine_dust",
+  "outputAmount": 1,
+  "duration": 200
+}

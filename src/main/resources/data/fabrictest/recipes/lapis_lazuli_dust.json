@@ -1,0 +1,9 @@
+{
+  "type": "fabrictest:grinding",
+  "input" : {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "outputItem": "fabrictest:lapis_lazuli_dust",
+  "outputAmount": 1,
+  "duration": 200
+}

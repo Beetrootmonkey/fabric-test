@@ -1,0 +1,9 @@
+{
+  "type": "fabrictest:grinding",
+  "input" : {
+    "item": "minecraft:netherite_scrap"
+  },
+  "outputItem": "fabrictest:netherite_scrap_dust",
+  "outputAmount": 1,
+  "duration": 200
+}

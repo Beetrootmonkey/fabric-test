@@ -1,0 +1,9 @@
+{
+  "type": "fabrictest:grinding",
+  "input" : {
+    "item": "minecraft:ender_pearl"
+  },
+  "outputItem": "fabrictest:ender_pearl_dust",
+  "outputAmount": 1,
+  "duration": 200
+}

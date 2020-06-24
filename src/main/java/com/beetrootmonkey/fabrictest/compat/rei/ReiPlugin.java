@@ -71,15 +71,6 @@ public class ReiPlugin implements REIPluginV0 {
 
   @Override
   public void registerRecipeDisplays(RecipeHelper recipeHelper) {
-
-    // TODO
-    // Or use .getAllMatches if you want all of the matches
-//    Optional<GrinderRecipe> match = world.getRecipeManager()
-//      .getFirstMatch(GrinderRecipe.Type.INSTANCE, inventory, world);
-//    recipeHelper.getAllSortedRecipes().stream().filter(recipe -> recipe.getType() == ModRecipes.GRINDING)
-
-//    RecipeManager.getRecipeTypes(MOD_ID).forEach(recipeType -> registerMachineRecipe(recipeHelper, recipeType));
-
     registerMachineRecipe(recipeHelper, ModRecipes.GRINDING);
   }
 
