@@ -1,11 +1,11 @@
 {
   "type": "fabrictest:grinding",
-  "inputA" : {
+  "input" : {
     "item": "minecraft:gold_ore"
   },
-  "inputB": {
-    "tag": "minecraft:logs"
-  },
   "outputItem": "fabrictest:gold_dust",
-  "outputAmount": "2"
+  "outputAmount": 1,
+  "bonusAmountMin": 0,
+  "bonusAmountMax": 0,
+  "bonusChance": 0.2
 }

@@ -6,8 +6,10 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Identifier;
 
 class GrinderRecipeJsonFormat {
-  JsonObject inputA;
-  JsonObject inputB;
+  JsonObject input;
   String outputItem;
-  int outputAmount;
+  Integer outputAmount;
+  Integer bonusAmountMin;
+  Integer bonusAmountMax;
+  Float bonusChance;
 }

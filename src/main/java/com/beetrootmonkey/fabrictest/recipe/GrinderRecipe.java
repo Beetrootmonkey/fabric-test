@@ -10,37 +10,60 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
+import static com.beetrootmonkey.fabrictest.Main.RANDOM;
+
 public class GrinderRecipe implements Recipe<Inventory> {
 
-  private final Ingredient inputA;
-  private final Ingredient inputB;
-  private final ItemStack outputStack;
+  private final Ingredient input;
+  private final ItemStack outputItem;
+  private final int outputAmount;
+  private final int bonusAmountMin;
+  private final int bonusAmountMax;
+  private final float bonusChance;
   private final Identifier id;
 
-  public GrinderRecipe(Ingredient inputA, Ingredient inputB, ItemStack outputStack, Identifier id) {
-    this.inputA = inputA;
-    this.inputB = inputB;
-    this.outputStack = outputStack;
+  public GrinderRecipe(Ingredient input, ItemStack outputItem, int outputAmount, int bonusAmountMin, int bonusAmountMax, float bonusChance, Identifier id) {
+    this.input = input;
+    this.outputItem = outputItem;
+    this.outputAmount = outputAmount;
+    this.bonusAmountMin = bonusAmountMin;
+    this.bonusAmountMax = bonusAmountMax;
+    this.bonusChance = bonusChance;
     this.id = id;
   }
 
-  public Ingredient getInputA() {
-    return inputA;
+  public Ingredient getInput() {
+    return input;
   }
 
-  public Ingredient getInputB() {
-    return inputB;
+  public int getOutputAmount() {
+    return outputAmount;
+  }
+
+  public int getBonusAmountMin() {
+    return bonusAmountMin;
+  }
+
+  public int getBonusAmountMax() {
+    return bonusAmountMax;
+  }
+
+  public float getBonusChance() {
+    return bonusChance;
+  }
+
+  public ItemStack getOutputItem() {
+    return outputItem;
   }
 
   @Override
   public boolean matches(Inventory inv, World world) {
-    return inputA.test(inv.getStack(0));
-//    return inputA.test(inv.getStack(0)) && inputB.test(inv.getStack(1));
+    return input.test(inv.getStack(0)); // Slot 0 is the "input" slot, I suppose
   }
 
   @Override
   public DefaultedList<Ingredient> getPreviewInputs() {
-    DefaultedList<Ingredient> list = DefaultedList.copyOf(inputA, inputA);
+    DefaultedList<Ingredient> list = DefaultedList.copyOf(input, input);
     return list;
   }
 
@@ -56,7 +79,13 @@ public class GrinderRecipe implements Recipe<Inventory> {
 
   @Override
   public ItemStack getOutput() {
-    return outputStack;
+    ItemStack result = outputItem.copy();
+    int amount = outputAmount;
+    if (RANDOM.nextFloat() < bonusChance) {
+      amount += bonusAmountMin + RANDOM.nextInt(bonusAmountMax - bonusAmountMin + 1);
+    }
+    result.setCount(amount);
+    return result;
   }
 
   @Override
@@ -70,8 +99,6 @@ public class GrinderRecipe implements Recipe<Inventory> {
     }
 
     public static final Type INSTANCE = new Type();
-
-    // This will be needed in step 4
     public static final String ID = "grinding";
   }
 
