@@ -63,7 +63,7 @@ public class GuiIronFurnace extends GuiBase<BuiltScreenHandler> {
               furnaceExp -= PlayerUtils.getLevelExperience(player.experienceLevel);
               ++levels;
             }
-            message = message + "+" + String.valueOf(levels) + "L";
+            message = message + "+" + String.valueOf(levels) + " Lvl";
           }
         }
 

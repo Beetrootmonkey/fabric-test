@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#-#",
+    "#-#",
+    "#O#"
+  ],
+  "key": {
+    "-": {
+      "item": "fabrictest:grindstone"
+    },
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "O": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "fabrictest:iron_furnace"
+  }
+}

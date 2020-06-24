@@ -5,7 +5,8 @@
   },
   "outputItem": "fabrictest:iron_dust",
   "outputAmount": 1,
-  "bonusAmountMin": 0,
-  "bonusAmountMax": 0,
-  "bonusChance": 0.2
+  "outputBonusMin": 0,
+  "outputBonusMax": 3,
+  "bonusChance": 1,
+  "duration": 200
 }

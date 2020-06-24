@@ -19,6 +19,7 @@ public class ModItems {
   public static final Item NETHERITE_DUST = new Item(new Item.Settings().group(ItemGroup.MISC));
   public static final Item NETHERITE_SCRAP_DUST = new Item(new Item.Settings().group(ItemGroup.MISC));
   public static final Item PRISMARINE_DUST = new Item(new Item.Settings().group(ItemGroup.MISC));
+  public static final Item GRINDSTONE = new Item(new Item.Settings());
 
   public static void doRegistration() {
     register(ENDER_PEARL_DUST, "ender_pearl_dust");
@@ -31,6 +32,7 @@ public class ModItems {
     register(NETHERITE_DUST, "netherite_dust");
     register(NETHERITE_SCRAP_DUST, "netherite_scrap_dust");
     register(PRISMARINE_DUST, "prismarine_dust");
+    register(GRINDSTONE, "grindstone");
   }
 
   private static void register(Item item, String path) {

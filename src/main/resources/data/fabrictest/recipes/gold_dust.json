@@ -5,7 +5,8 @@
   },
   "outputItem": "fabrictest:gold_dust",
   "outputAmount": 1,
-  "bonusAmountMin": 0,
-  "bonusAmountMax": 0,
-  "bonusChance": 0.2
+  "bonusChance": 0.2,
+  "outputBonusMin": 1,
+  "outputBonusMax": 1,
+  "duration": 200
 }

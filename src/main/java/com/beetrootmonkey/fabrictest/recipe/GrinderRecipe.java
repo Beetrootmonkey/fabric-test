@@ -17,18 +17,21 @@ public class GrinderRecipe implements Recipe<Inventory> {
   private final Ingredient input;
   private final ItemStack outputItem;
   private final int outputAmount;
-  private final int bonusAmountMin;
-  private final int bonusAmountMax;
   private final float bonusChance;
+  private final int outputBonusMin;
+  private final int outputBonusMax;
+  private final int duration;
   private final Identifier id;
 
-  public GrinderRecipe(Ingredient input, ItemStack outputItem, int outputAmount, int bonusAmountMin, int bonusAmountMax, float bonusChance, Identifier id) {
+  public GrinderRecipe(Ingredient input, ItemStack outputItem, int outputAmount, float bonusChance, int outputBonusMin, int outputBonusMax, int duration, Identifier id) {
     this.input = input;
     this.outputItem = outputItem;
+    this.outputItem.setCount(outputAmount);
     this.outputAmount = outputAmount;
-    this.bonusAmountMin = bonusAmountMin;
-    this.bonusAmountMax = bonusAmountMax;
+    this.outputBonusMin = outputBonusMin;
+    this.outputBonusMax = Math.max(outputBonusMin, outputBonusMax);
     this.bonusChance = bonusChance;
+    this.duration = duration;
     this.id = id;
   }
 
@@ -40,12 +43,12 @@ public class GrinderRecipe implements Recipe<Inventory> {
     return outputAmount;
   }
 
-  public int getBonusAmountMin() {
-    return bonusAmountMin;
+  public int getOutputBonusMin() {
+    return outputBonusMin;
   }
 
-  public int getBonusAmountMax() {
-    return bonusAmountMax;
+  public int getOutputBonusMax() {
+    return outputBonusMax;
   }
 
   public float getBonusChance() {
@@ -54,6 +57,10 @@ public class GrinderRecipe implements Recipe<Inventory> {
 
   public ItemStack getOutputItem() {
     return outputItem;
+  }
+
+  public int getDuration() {
+    return duration;
   }
 
   @Override
@@ -82,7 +89,7 @@ public class GrinderRecipe implements Recipe<Inventory> {
     ItemStack result = outputItem.copy();
     int amount = outputAmount;
     if (RANDOM.nextFloat() < bonusChance) {
-      amount += bonusAmountMin + RANDOM.nextInt(bonusAmountMax - bonusAmountMin + 1);
+      amount += outputBonusMin + RANDOM.nextInt(outputBonusMax - outputBonusMin + 1);
     }
     result.setCount(amount);
     return result;

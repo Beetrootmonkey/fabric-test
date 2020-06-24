@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "com.beetrootmonkey.fabrictest.Main"
+    ],
+    "rei_plugins_v0": [
+      "com.beetrootmonkey.fabrictest.compat.rei.ReiPlugin"
     ]
   },
   "mixins": [
