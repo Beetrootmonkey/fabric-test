@@ -1,9 +1,9 @@
 {
   "type": "fabrictest:grinding",
   "input" : {
-    "item": "minecraft:nether_quartz"
+    "item": "minecraft:quartz"
   },
-  "outputItem": "fabrictest:nether_quartz_dust",
+  "outputItem": "fabrictest:quartz_dust",
   "outputAmount": 1,
   "duration": 200
 }

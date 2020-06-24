@@ -1,0 +1,9 @@
+{
+  "type": "fabrictest:grinding",
+  "input" : {
+    "item": "minecraft:diamond"
+  },
+  "outputItem": "fabrictest:diamond_dust",
+  "outputAmount": 1,
+  "duration": 200
+}

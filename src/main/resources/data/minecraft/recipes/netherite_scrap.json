@@ -1,0 +1,12 @@
+{
+  "type": "fabrictest:grinding",
+  "input" : {
+    "item": "minecraft:ancient_debris"
+  },
+  "outputItem": "fabrictest:netherite_scrap_dust",
+  "outputAmount": 1,
+  "bonusChance": 0.2,
+  "outputBonusMin": 1,
+  "outputBonusMax": 1,
+  "duration": 200
+}

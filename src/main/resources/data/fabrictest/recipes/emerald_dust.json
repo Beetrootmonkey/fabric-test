@@ -1,0 +1,9 @@
+{
+  "type": "fabrictest:grinding",
+  "input" : {
+    "item": "minecraft:emerald"
+  },
+  "outputItem": "fabrictest:emerald_dust",
+  "outputAmount": 1,
+  "duration": 200
+}
