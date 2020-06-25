@@ -14,6 +14,7 @@
   "item.fabrictest.grindstone": "Grindstone",
   "item.fabrictest.diamond_dust": "Diamond Dust",
   "item.fabrictest.emerald_dust": "Emerald Dust",
+  "container.fabrictest.furnace": "Custom Furnace",
   "fabrictest:grinding": "Grinding",
   "fabrictest:bonus": "Bonus",
   "fabrictest:duration": "Duration"
