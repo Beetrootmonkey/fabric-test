@@ -14,7 +14,7 @@ import static com.beetrootmonkey.fabrictest.Main.MOD_ID;
 
 public class ModBlocks {
 
-  public static final BaseBlock TEST_BLOCK = new BaseBlock(FabricBlockSettings.of(Material.WOOL).dropsNothing().sounds(BlockSoundGroup.CHAIN));
+  public static final BaseBlock TEST_BLOCK = new BaseBlock(FabricBlockSettings.of(Material.WOOL).sounds(BlockSoundGroup.CHAIN));
   public static final IronFurnaceBlock IRON_FURNACE = new IronFurnaceBlock();
 
   public static void doRegistration() {
