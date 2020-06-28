@@ -1,0 +1,2 @@
+- furnace, die einen button zum ansicht-switchen hat | erlaubt dann auch, 3x3-rezepte zu craften
+- seltene zutaten, gerichte und rezepte in dungeons etc
