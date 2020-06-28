@@ -17,6 +17,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import reborncore.client.gui.builder.GuiBase;
+import reborncore.client.gui.builder.slot.GuiTab;
 import reborncore.client.gui.builder.widget.GuiButtonSimple;
 import reborncore.client.gui.guibuilder.GuiBuilder;
 import reborncore.client.screen.builder.BuiltScreenHandler;
@@ -27,6 +28,7 @@ import java.util.List;
 
 public class GuiIronFurnace extends GuiBase<BuiltScreenHandler> {
 
+  List<GuiTab> tabs = new ArrayList<>();
   boolean showFurnace = true;
   GuiButtonSimple buttonShowFurnace;
   GuiButtonSimple buttonShowCraftinTable;
@@ -205,6 +207,8 @@ public class GuiIronFurnace extends GuiBase<BuiltScreenHandler> {
         this.drawCenteredText(matrices, textRenderer, this.getMessage(), this.x + this.width / 2, this.y + (this.height - 8) / 2, j | MathHelper.ceil(this.alpha * 255.0F) << 24);
       }
     });
+
+    getTabs().clear();
   }
 
 
