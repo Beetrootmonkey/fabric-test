@@ -16,5 +16,7 @@
   "item.fabrictest.emerald_dust": "Emerald Dust",
   "fabrictest:grinding": "Grinding",
   "fabrictest:bonus": "Bonus",
+  "fabrictest:oven": "Oven",
+  "fabrictest:preparation": "Preparation",
   "fabrictest:duration": "Duration"
 }

@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import reborncore.client.gui.builder.GuiBase;
@@ -55,6 +56,13 @@ public class GuiIronFurnace extends GuiBase<BuiltScreenHandler> {
   public void onClick() {
     NetworkManager.sendToServer(ServerboundPackets.createPacketExperience(blockEntity));
   }
+
+//  @Override
+//  public Text getTitle() {
+//    return getShowFurnace() ? new TranslatableText("fabrictest:oven") : new TranslatableText("fabrictest:preparation");
+//  }
+
+  
 
   @Override
   public void init() {

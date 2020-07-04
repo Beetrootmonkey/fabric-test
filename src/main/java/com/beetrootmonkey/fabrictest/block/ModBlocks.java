@@ -2,10 +2,12 @@ package com.beetrootmonkey.fabrictest.block;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -16,10 +18,12 @@ public class ModBlocks {
 
   public static final BaseBlock TEST_BLOCK = new BaseBlock(FabricBlockSettings.of(Material.WOOL).dropsNothing().sounds(BlockSoundGroup.CHAIN));
   public static final IronFurnaceBlock IRON_FURNACE = new IronFurnaceBlock();
+  public static final CocoaBlock COCOA_BLOCK = new CocoaBlock(FabricBlockSettings.copyOf(Blocks.COCOA));
 
   public static void doRegistration() {
     register(TEST_BLOCK, "test_block");
     register(IRON_FURNACE, "iron_furnace");
+    register(COCOA_BLOCK, "cocoa");
   }
 
   private static void register(Block block, String path) {
